@@ -39,7 +39,7 @@
 \providecommand\phantomsection{}
 
 
-\title{Think Stats}
+\title{L'esprit statistique (titre original: Think Stats)}
 \author{Allen B. Downey}
 
 \newcommand{\thetitle}{Think Stats}
@@ -266,367 +266,251 @@ Unported License, which is available at
 \fi
 % END OF THE PART WE SKIP FOR PLASTEX
 
-\chapter{Preface}
+\chapter{Préface}
 \label{preface}
 
-This book is an
-introduction to the practical tools of exploratory data analysis.
-The organization of the book follows the process I use
-when I start working with a dataset:
+Ce livre est une
+introduction aux outils pratiques de l'analyse exploratoire des données.
+L'organisation du livre suit le processus que j'utilise
+lorsque je commence à travailler avec un ensemble de données :
 
 \begin{itemize}
 
-\item Importing and cleaning: Whatever format the data is in, it
-  usually takes some time and effort to read the data, clean and
-  transform it, and check that everything made it through the
-  translation process intact.
+\item L'importation et le nettoyage: Quel que soit le format des données, il faut généralement du temps et des efforts pour les lire, les nettoyer et les transformer, et vérifier que tout est intact au cours du processus d'importation.
 \index{cleaning}
 
-\item Single variable explorations: I usually start by examining one
-  variable at a time, finding out what the variables mean, looking
-  at distributions of the values, and choosing appropriate
-  summary statistics.
+\item Explorations à variable unique : Je commence généralement par examiner une variable à la fois, en découvrant la signification des variables, en examinant les distributions des valeurs et en choisissant des statistiques sommaires appropriées.
 \index{distribution}
 
-\item Pair-wise explorations: To identify possible relationships
-  between variables, I look at tables and scatter plots, and compute
-  correlations and linear fits.
+\item Des explorations par paires : Pour identifier les relations possibles entre les variables, je regarde des tableaux et des diagrammes de dispersion, et je calcule des corrélations et des ajustements linéaires.
 \index{correlation}
 \index{linear fit}
 
-\item Multivariate analysis: If there are apparent relationships
-  between variables, I use multiple regression to add control variables
-  and investigate more complex relationships.
+\item Analyse multivariée : S'il existe des relations apparentes entre les variables, j'utilise la régression multiple pour ajouter des variables de contrôle et étudier des relations plus complexes.
 \index{multiple regression}
 \index{control variable}
 
-\item Estimation and hypothesis testing: When reporting statistical
-  results, it is important to answer three questions: How big is
-  the effect?  How much variability should we expect if we run the same
-  measurement again?  Is it possible that the apparent effect is
-  due to chance?
+\item Estimation et vérification des hypothèses : Lorsque vous présentez des résultats statistiques, il est important de répondre à trois questions : Quelle est l'ampleur de l'effet ?  Quel est le degré de variabilité auquel nous devons nous attendre si nous effectuons à nouveau la même mesure ?  Est-il possible que l'effet apparent soit dû au hasard ?
 \index{estimation}
 \index{hypothesis testing}
 
-\item Visualization: During exploration, visualization is an important 
-  tool for finding possible relationships and effects.  Then if an
-  apparent effect holds up to scrutiny, visualization is an effective
-  way to communicate results.
+\item Visualisation : Au cours de l'exploration, la visualisation est un outil important pour trouver des relations et des effets possibles.  Enfin, si un effet apparent résiste à l'examen, la visualisation est un moyen efficace de communiquer les résultats.
 \index{visualization}
 
 \end{itemize}
 
-This book takes a computational approach, which has several
-advantages over mathematical approaches:
+Ce livre adopte une approche informatique, qui présente plusieurs avantages par rapport aux approches mathématiques :
 \index{computational methods}
 
 \begin{itemize}
 
-\item I present most ideas using Python code, rather than
-  mathematical notation.  In general, Python code is more readable;
-  also, because it is executable, readers can download it, run it,
-  and modify it.
+\item Je présente la plupart des idées en utilisant le code Python, plutôt que la notation mathématique.  En général, le code Python est plus lisible ; de plus, comme il est exécutable, les lecteurs peuvent le télécharger, l'exécuter et le modifier.
 
-\item Each chapter includes exercises readers can do to develop
-  and solidify their learning.  When you write programs, you
-  express your understanding in code; while you are debugging the
-  program, you are also correcting your understanding.
+\item Chaque chapitre comprend des exercices que les lecteurs peuvent faire pour développer et solidifier leur apprentissage.  Lorsque vous écrivez des programmes, vous exprimez votre compréhension en code ; pendant que vous déboguez le programme, vous corrigez également votre compréhension.
 \index{debugging}
 
-\item Some exercises involve experiments to test statistical
-  behavior.  For example, you can explore the Central Limit Theorem
-  (CLT) by generating random samples and computing their sums.  The
-  resulting visualizations demonstrate why the CLT works and when
-  it doesn't.
+\item Certains exercices impliquent des expériences pour tester le comportement statistique.  Par exemple, vous pouvez explorer le Théorème de la limite centrale (CLT) en générant des échantillons aléatoires et en calculant leurs sommes.  Les visualisations qui en résultent montrent pourquoi le CLT fonctionne et quand il ne fonctionne pas.
 \index{Central Limit Theorem}
 \index{CLT}
 
-\item Some ideas that are hard to grasp mathematically are easy to
-  understand by simulation.  For example, we approximate p-values by
-  running random simulations, which reinforces the meaning of the
-  p-value.
+\item Certaines idées qui sont difficiles à saisir mathématiquement sont faciles à comprendre par simulation.  Par exemple, nous approximons les p-valeurs en effectuant des simulations aléatoires, ce qui renforce la signification de la p-valeur.
 \index{p-value}
 
-\item Because the book is based on a general-purpose programming
-  language (Python), readers can import data from almost any source.
-  They are not limited to datasets that have been cleaned and
-  formatted for a particular statistics tool.
+\item Comme le livre est basé sur un langage de programmation universel (Python), les lecteurs peuvent importer des données provenant de presque toutes les sources. 
+ Ils ne sont pas limités aux ensembles de données qui ont été nettoyés et formatés pour un outil statistique particulier.
 
 \end{itemize}
 
-The book lends itself to a project-based approach.  In my class,
-students work on a semester-long project that requires them to pose a
-statistical question, find a dataset that can address it, and apply
-each of the techniques they learn to their own data.
+Le livre se prête à une approche par projet.  Dans ma classe, les étudiants travaillent sur un projet d'un semestre qui les oblige à poser une question statistique, à trouver un ensemble de données permettant d'y répondre et à appliquer chacune des techniques qu'ils apprennent à leurs propres données.
 
-To demonstrate my approach to statistical analysis, the book
-presents a case study that runs through all of the chapters.  It uses
-data from two sources:
+Pour illustrer mon approche de l'analyse statistique, le livre présente une étude de cas qui traverse tous les chapitres.  Il utilise des données provenant de deux sources :
 
 \begin{itemize}
 
-\item The National Survey of Family Growth (NSFG), conducted by the
-  U.S. Centers for Disease Control and Prevention (CDC) to gather
-  ``information on family life, marriage and divorce, pregnancy,
-  infertility, use of contraception, and men's and women's health.''
+\item L'enquête nationale sur la croissance des familles (NSFG), menée par les centres américains de contrôle et de prévention des maladies (CDC) pour recueillir des informations sur la vie familiale, le mariage et le divorce, la grossesse, l'infertilité, l'utilisation de la contraception et la santé des hommes et des femmes.
+  ("information on family life, marriage and divorce, pregnancy,
+  infertility, use of contraception, and men's and women's health.")
   (See \url{http://cdc.gov/nchs/nsfg.htm}.)
 
-\item The Behavioral Risk Factor Surveillance System (BRFSS),
-  conducted by the National Center for Chronic Disease Prevention and
-  Health Promotion to ``track health conditions and risk behaviors in
-  the United States.''  (See \url{http://cdc.gov/BRFSS/}.)
+\item Le Behavioral Risk Factor Surveillance System (BRFSS), mené par le National Center for Chronic Disease Prevention and Health Promotion pour suivre les conditions sanitaires et les comportements à risque aux États-Unis. ("track health conditions and risk behaviors in
+  the United States")  (See \url{http://cdc.gov/BRFSS/}.)
 
 \end{itemize}
 
-Other examples use data from the IRS, the U.S. Census, and
-the Boston Marathon.
+D'autres exemples utilisent les données de l'IRS, du recensement américain et Boston Marathon.
 
-This second edition of {\it Think Stats\/} includes the chapters from
-the first edition, many of them substantially revised, and new
-chapters on regression, time series analysis, survival analysis,
-and analytic methods.  The previous edition did not use pandas,
-SciPy, or StatsModels, so all of that material is new.
+Cette deuxième édition de {\it L'esprit statistique\/} comprend les chapitres de la première édition, dont beaucoup ont été considérablement révisés, et de nouveaux chapitres sur la régression, l'analyse des séries chronologiques, l'analyse de survie,
+et des méthodes analytiques.  L'édition précédente n'utilisait pas les pandas, SciPy, ou StatsModels, donc tout ce matériel est nouveau.
 
 
-\section{How I wrote this book}
+\section{Comment j'ai écrit ce livre}
 
-When people write a new textbook, they usually start by
-reading a stack of old textbooks.  As a result, most books
-contain the same material in pretty much the same order.
+Lorsque les gens écrivent un nouveau manuel, ils commencent généralement par lire une pile de vieux manuels.  Ainsi, la plupart des livres contiennent le même matériel dans un ordre à peu près identique.
 
-I did not do that.  In fact, I used almost no printed material while I
-was writing this book, for several reasons:
+Ce n'est pas ce que j'ai fait.  En fait, je n'ai pratiquement pas utilisé de matériel imprimé pendant que j'écrivais ce livre, pour plusieurs raisons :
 
 \begin{itemize}
 
-\item My goal was to explore a new approach to this material, so I didn't
-want much exposure to existing approaches.
+\item Mon but était d'explorer une nouvelle approche de ce matériau, je ne voulais donc pas être trop exposé aux approches existantes.
 
-\item Since I am making this book available under a free license, I wanted
-to make sure that no part of it was encumbered by copyright restrictions.
+\item Comme je mets ce livre à disposition sous une licence libre, je voulais m'assurer qu'aucune partie de ce livre n'était grevée par des restrictions de copyright.
 
-\item Many readers of my books don't have access to libraries of
-printed material, so I tried to make references to resources that are
-freely available on the Internet.
+\item De nombreux lecteurs de mes livres n'ont pas accès à des bibliothèques de documents imprimés, j'ai donc essayé de faire référence à des ressources qui sont disponibles gratuitement sur Internet.
 
-\item Some proponents of old media think that the exclusive
-use of electronic resources is lazy and unreliable.  They might be right
-about the first part, but I think they are wrong about the second, so
-I wanted to test my theory.
+\item Certains partisans des anciens médias pensent que l'utilisation exclusive des ressources électroniques est paresseuse et peu fiable.  Ils ont peut-être raison pour la première partie, mais je pense qu'ils ont tort pour la seconde, c'est pourquoi je voulais tester ma théorie.
 
 % http://www.ala.org/ala/mgrps/rts/nmrt/news/footnotes/may2010/in_defense_of_wikipedia_bonnett.cfm
 
 \end{itemize}
 
-The resource I used more than any other is Wikipedia.  In general, the
-articles I read on statistical topics were very good (although I made
-a few small changes along the way).  I include references to Wikipedia
-pages throughout the book and I encourage you to follow those links;
-in many cases, the Wikipedia page picks up where my description leaves
-off.  The vocabulary and notation in this book are generally
-consistent with Wikipedia, unless I had a good reason to deviate.
-Other resources I found useful were Wolfram MathWorld and 
-the Reddit statistics forum, \url{http://www.reddit.com/r/statistics}.
+La ressource que j'ai utilisée plus que toute autre est Wikipédia. En général, le Les articles que j'ai lus sur des sujets statistiques étaient très bons (bien que j'aie fait quelques petits changements en cours de route).  J'inclus des références aux pages de Wikipedia tout au long du livre et je vous encourage à suivre ces liens ; dans de nombreux cas, la page Wikipedia complète là où ma description s'arrête.  Le vocabulaire et la notation dans ce livre sont généralement conforme à Wikipédia, à moins que j'aie une bonne raison de m'en écarter.  D'autres ressources que j'ai trouvées utiles sont les forum de statistiques sur Wolfram MathWorld et  Reddit. \url{http://www.reddit.com/r/statistics}.
 
 
 \section{Using the code}
 \label{code}
 
-The code and data used in this book are available from
-\url{https://github.com/AllenDowney/ThinkStats2}.  Git is a version
-control system that allows you to keep track of the files that
-make up a project.  A collection of files under Git's control is
-called a {\bf repository}.  GitHub is a hosting service that provides
-storage for Git repositories and a convenient web interface.
+Le code et les données utilisés dans ce livre sont disponibles à l'adresse suivante
+\url{https://github.com/AllenDowney/ThinkStats2}.  Git est un système de contrôle de version qui vous permet de garder une trace des fichiers qui composent un projet.  Une collection de fichiers sous le contrôle de Git est appelée un {\bf dépôt}.  GitHub est un service d'hébergement qui fournit de l'espace pour créer des dépôts Git et offre une interface web intuitive.
 \index{repository}
 \index{Git}
 \index{GitHub}
 
-The GitHub homepage for my repository provides several ways to
-work with the code:
+La page d'accueil GitHub de mon dépôt propose plusieurs façons de travailler avec le code :
 
 \begin{itemize}
 
-\item You can create a copy of my repository
-on GitHub by pressing the {\sf Fork} button.  If you don't already
-have a GitHub account, you'll need to create one.  After forking, you'll
-have your own repository on GitHub that you can use to keep track
-of code you write while working on this book.  Then you can
-clone the repo, which means that you make a copy of the files
-on your computer.
+\item Vous pouvez créer une copie de mon dépôt sur GitHub en appuyant sur le bouton {\sf Fork}.  Si vous n'avez pas encore de compte GitHub, vous devrez en créer un.  Après la fork , vous aurez votre propre dépôt sur GitHub que vous pourrez utiliser pour garder une trace du code que vous écrivez en travaillant sur ce livre.  Vous pourrez ensuite cloner le dépôt, ce qui signifie que vous ferez une copie des fichiers sur votre ordinateur.
 \index{fork}
 
-\item Or you could clone
-my repository.  You don't need a GitHub account to do this, but you
-won't be able to write your changes back to GitHub.
+\item Oubien vous pourriez cloner mon dépôt.  Vous n'avez pas besoin d'un compte GitHub pour le faire, mais vous ne pourrez pas réécrire vos modifications sur GitHub.
 \index{clone}
 
-\item If you don't want to use Git at all, you can download the files
-in a Zip file using the button in the lower-right corner of the
-GitHub page.
+\item Si vous ne voulez pas du tout utiliser Git, vous pouvez télécharger les fichiers dans un fichier Zip en utilisant le bouton dans le coin inférieur droit de la page GitHub.
 
 \end{itemize}
 
-All of the code is written to work in both Python 2 and Python 3
-with no translation.
+Tout le code est écrit pour fonctionner en Python 2 et Python 3 sans traduction.
 
-I developed this book using Anaconda from
-Continuum Analytics, which is a free Python distribution that includes
-all the packages you'll need to run the code (and lots more).
-I found Anaconda easy to install.  By default it does a user-level
-installation, not system-level, so you don't need administrative
-privileges.  And it supports both Python 2 and Python 3.  You can
-download Anaconda from \url{http://continuum.io/downloads}.
+J'ai développé ce livre en utilisant l'Anaconda de Continuum Analytics, qui est une distribution Python gratuite qui comprend tous les packages dont vous aurez besoin pour exécuter le code (et bien plus encore). J'ai trouvé qu'Anaconda était facile à installer.  Par défaut, l'installation se fait dans les repertoires personnels de l'utilisateur et non au niveau du système, de sorte que vous n'avez pas besoin de des privilèges.  Et il supporte à la fois Python 2 et Python 3.  Vous pouvez télécharger Anaconda sur \url{http://continuum.io/downloads}.
 \index{Anaconda}
 
-If you don't want to use Anaconda, you will need the following
-packages:
+Si vous ne souhaitez pas utiliser l'Anaconda, vous aurez besoin des packages suivants :
 
 \begin{itemize}
 
-\item pandas for representing and analyzing data,
+\item pandas pour la représentation et l'analyse des données,
   \url{http://pandas.pydata.org/};
 \index{pandas}
 
-\item NumPy for basic numerical computation, \url{http://www.numpy.org/};
+\item NumPy pour le calcul numérique de base, \url{http://www.numpy.org/};
 \index{NumPy}
 
-\item SciPy for scientific computation including statistics,
+\item SciPy pour le calcul scientifique, y compris les statistiques,
   \url{http://www.scipy.org/};
 \index{SciPy}
 
-\item StatsModels for regression and other statistical analysis,
+\item StatsModels pour la régression et autres analyses statistiques,
 \url{http://statsmodels.sourceforge.net/}; and
 \index{StatsModels}
 
-\item matplotlib for visualization, \url{http://matplotlib.org/}.
+\item matplotlib pour la visualisation, \url{http://matplotlib.org/}.
 \index{matplotlib}
 
 \end{itemize}
 
-Although these are commonly used packages, they are not included with
-all Python installations, and they can be hard to install in some
-environments.  If you have trouble installing them, I strongly
-recommend using Anaconda or one of the other Python distributions
-that include these packages.
+Bien qu'il s'agisse de packages couramment utilisés, ils ne sont pas inclus dans toutes les installations Python, et ils peuvent être difficiles à installer dans certains environnements.  Si vous avez des difficultés à les installer, je vous recommande fortement d'utiliser Anaconda ou l'une des autres distributions Python qui incluent ces packages.
 \index{installation}
 
-After you clone the repository or unzip the zip file, you should have
-a folder called {\tt ThinkStats2/code} with a file called {\tt nsfg.py}.
-If you run {\tt nsfg.py}, it should read a data file, run some tests, and print a
-message like, ``All tests passed.''  If you get import errors, it
-probably means there are packages you need to install.
+Après avoir cloné le dépôt ou dézippé le fichier zip, vous devriez avoir
+un dossier appelé {\tt ThinkStats2/code} avec un fichier appelé {\tt nsfg.py}.
+Si vous exécutez {\tt nsfg.py}, il devrait lire un fichier de données, effectuer quelques tests et imprimer un
+un message du genre "Tous les tests ont été réussis".  Si vous obtenez des erreurs d'importation, il signifie probablement qu'il y a des paquets que vous devez installer.
 
-Most exercises use Python scripts, but some also use the IPython
-notebook.  If you have not used IPython notebook before, I suggest
-you start with the documentation at
+La plupart des exercices utilisent des scripts Python, mais certains utilisent également  IPython notebook.  Si vous n'avez jamais utilisé de notebook IPython auparavant, je vous suggère vous commencez par la documentation à 
 \url{http://ipython.org/ipython-doc/stable/notebook/notebook.html}.
 \index{IPython}
 
-I wrote this book assuming that the reader is familiar with core Python,
-including object-oriented features, but not pandas,
-NumPy, and SciPy.  If you are already familiar with these modules, you
-can skip a few sections.
+J'ai écrit ce livre en supposant que le lecteur est familier avec le noyau Python, y compris les fonctionnalités orientées objet, mais pas pandas, NumPy, et SciPy.  Si vous êtes déjà familier avec ces modules, vous pouvez sauter quelques sections.
 
-I assume that the reader knows basic mathematics, including
-logarithms, for example, and summations.  I refer to calculus concepts
-in a few places, but you don't have to do any calculus.
+Je suppose que le lecteur connaît les mathématiques de base, notamment les logarithmes, par exemple, et les sommations.  Je me réfère aux concepts de calcul à quelques endroits, mais vous n'avez pas à faire de calculs.
 
-If you have never studied statistics, I think this book is a good place
-to start.  And if you have taken
-a traditional statistics class, I hope this book will help repair the
-damage.
+Si vous n'avez jamais étudié les statistiques, je pense que ce livre est un bon endroit pour commencer.  Et si vous avez pris un cours de statistiques traditionnel, j'espère que ce livre aidera à réparer les dommages.
 
 
 
 ---
 
-Allen B. Downey is a Professor of Computer Science at 
-the Franklin W. Olin College of Engineering in Needham, MA.
+Allen B. Downey est professeur d'informatique 
+au Franklin W. Olin College of Engineering à Needham, MA.
 
 
 
 
 \section*{Contributor List}
 
-If you have a suggestion or correction, please send email to 
-{\tt downey@allendowney.com}.  If I make a change based on your
-feedback, I will add you to the contributor list
-(unless you ask to be omitted).
+Si vous avez une suggestion ou une correction à apporter, veuillez envoyer un courriel à l'adresse suivante : {\tt downey@allendowney.com}.  Si je fais un changement sur la base de vos commentaires, je vous ajouterai à la liste des contributeurs (sauf si vous demandez à être omis).
 \index{contributors}
 
-If you include at least part of the sentence the
-error appears in, that makes it easy for me to search.  Page and
-section numbers are fine, too, but not quite as easy to work with.
-Thanks!
+Si vous incluez au moins une partie de la phrase dans laquelle l'erreur apparaît, cela me facilite la recherche. Les numéros de page et de section sont également corrects, mais pas aussi faciles à utiliser.
+Merci !
 
 \small
 
 \begin{itemize}
 
-\item Lisa Downey and June Downey read an early draft and made many
-corrections and suggestions.
+\item Lisa Downey et June Downey ont lu un premier projet et ont apporté de nombreuses corrections et suggestions.
 
-\item Steven Zhang found several errors.
+\item Steven Zhang a trouvé plusieurs erreurs.
 
-\item Andy Pethan and Molly Farison helped debug some of the solutions,
-and Molly spotted several typos.
+\item Andy Pethan et Molly Farison ont aidé à déboguer certaines des solutions, et Molly a repéré plusieurs fautes de frappe.
 
-\item Dr. Nikolas Akerblom knows how big a Hyracotherium is.
+\item Dr. Nikolas Akerblom sait à quel point un Hyracotherium est grand.
 
-\item Alex Morrow clarified one of the code examples.
+\item Alex Morrow a clarifié l'un des exemples de code.
 
-\item Jonathan Street caught an error in the nick of time.
+\item Jonathan Street a commis une erreur en un rien de temps.
 
-\item Many thanks to Kevin Smith and Tim Arnold for their work on
-plasTeX, which I used to convert this book to DocBook.
+\item Un grand merci à Kevin Smith et Tim Arnold pour leur travail sur plasTeX, que j'ai utilisé pour convertir ce livre en DocBook.
 
-\item George Caplan sent several suggestions for improving clarity.
+\item George Caplan a envoyé plusieurs suggestions pour améliorer la clarté.
 
-\item Julian Ceipek found an error and a number of typos.
+\item Julian Ceipek a trouvé une erreur et un certain nombre de fautes de frappe.
 
-\item Stijn Debrouwere, Leo Marihart III, Jonathan Hammler, and Kent Johnson
-found errors in the first print edition.
+\item Stijn Debrouwere, Leo Marihart III, Jonathan Hammler et Kent Johnson ont trouvé des erreurs dans la première édition imprimée.
 
-\item J\"{o}rg Beyer found typos in the book and made many corrections
-in the docstrings of the accompanying code.
+\item J\"{o}rg Beyer a trouvé des fautes de frappe dans le livre et a fait de nombreuses corrections dans les docstrings du code d'accompagnement.
 
-\item Tommie Gannert sent a patch file with a number of corrections.
+\item Tommie Gannert a envoyé un fichier correctif avec un certain nombre de corrections.
 
-\item Christoph Lendenmann submitted several errata.
+\item Christoph Lendenmann a soumis plusieurs errata.
 
-\item Michael Kearney sent me many excellent suggestions.
+\item Michael Kearney m'a envoyé de nombreuses et excellentes suggestions.
 
-\item Alex Birch made a number of helpful suggestions.
+\item Alex Birch a fait un certain nombre de suggestions utiles.
 
-\item Lindsey Vanderlyn, Griffin Tschurwald, and Ben Small read an
-  early version of this book and found many errors.
+\item Lindsey Vanderlyn, Griffin Tschurwald et Ben Small ont lu une première version de ce livre et ont trouvé de nombreuses erreurs.
 
-\item John Roth, Carol Willing, and Carol Novitsky performed technical
-reviews of the book.  They found many errors and made many
-helpful suggestions.
+\item John Roth, Carol Willing et Carol Novitsky ont effectué des révisions techniques du livre.  Ils ont trouvé de nombreuses erreurs et ont fait de nombreuses suggestions utiles.
 
-\item David Palmer sent many helpful suggestions and corrections.
+\item David Palmer a envoyé de nombreuses suggestions et corrections utiles.
 
-\item Erik Kulyk found many typos.
+\item Erik Kulyk a trouvé de nombreuses fautes de frappe.
 
-\item Nir Soffer sent several excellent pull requests for both the
-  book and the supporting code.
+\itemNir Soffer a envoyé plusieurs excellentes requêtes de pull pour le livre et le code de soutien.
 
-\item GitHub user flothesof sent a number of corrections.
+\item Flothesof, utilisateur de GitHub, a envoyé un certain nombre de corrections.
 
-\item Toshiaki Kurokawa, who is working on the Japanese translation of
-this book, has sent many corrections and helpful suggestions.
+\item Toshiaki Kurokawa, qui travaille à la traduction japonaise de ce livre, a envoyé de nombreuses corrections et suggestions utiles.
 
-\item Benjamin White suggested more idiomatic Pandas code.
+\item Benjamin White a suggéré un code de pandas plus idiomatique.
 
-\item Takashi Sato spotted an code error.
+\item Takashi Sato a repéré une erreur de code.
 
 % ENDCONTRIB
 
 \end{itemize}
 
-Other people who found typos and similar errors are Andrew Heine,
+D'autres personnes qui ont trouvé des fautes de frappe et des erreurs similaires sont Andrew Heine,
 G\'{a}bor Lipt\'{a}k,
 Dan Kearney,
 Alexander Gryzlov, 
@@ -660,23 +544,17 @@ Luigi Patruno.
 \mainmatter
 
 
-\chapter{Exploratory data analysis}
+\chapter{L'analyse exploratoire des données}
 \label{intro}
 
-The thesis of this book is that data combined with practical
-methods can answer questions and guide decisions under uncertainty.
+La thèse de ce livre est que les données combinées à des méthodes pratiques peuvent répondre aux questions et guider les décisions dans un contexte d'incertitude.
 
-As an example, I present a case study motivated by a question
-I heard when my wife and I were expecting our first child: do first
-babies tend to arrive late?
+À titre d'exemple, je présente une étude de cas motivée par une question que j'ai entendue lorsque ma femme et moi attendions notre premier enfant : les premiers bébés ont-ils tendance à arriver en retard ?
 \index{first babies}
 
-If you Google this question, you will find plenty of discussion.  Some
-people claim it's true, others say it's a myth, and some people say
-it's the other way around: first babies come early.
+Si vous recherchez cette question sur Google, vous trouverez de nombreuses discussions.  Certains prétendent que c'est vrai, d'autres disent que c'est un mythe, et d'autres encore que c'est l'inverse : les premiers bébés arrivent tôt.
 
-In many of these discussions, people provide data to support their
-claims.  I found many examples like these:
+Dans beaucoup de ces discussions, les gens fournissent des données pour étayer leurs affirmations.  J'ai trouvé de nombreux exemples de ce genre :
 
 \begin{quote}
 
