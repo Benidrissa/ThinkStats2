@@ -1,15 +1,15 @@
 \BOOKMARK [0][-]{chapter*.1}{Pr\351face}{}% 1
-\BOOKMARK [1][-]{section.0.1}{How I wrote this book}{chapter*.1}% 2
-\BOOKMARK [1][-]{section.0.2}{Using the code}{chapter*.1}% 3
-\BOOKMARK [0][-]{chapter.1}{Exploratory data analysis}{}% 4
-\BOOKMARK [1][-]{section.1.1}{A statistical approach}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.2}{The National Survey of Family Growth}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.3}{Importing the data}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.4}{DataFrames}{chapter.1}% 8
+\BOOKMARK [1][-]{section.0.1}{Comment j'ai \351crit ce livre}{chapter*.1}% 2
+\BOOKMARK [1][-]{section.0.2}{L'utilisation du code}{chapter*.1}% 3
+\BOOKMARK [0][-]{chapter.1}{L'analyse exploratoire des donn\351es}{}% 4
+\BOOKMARK [1][-]{section.1.1}{Une approche statistique}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{L'enqu\352te nationale sur la croissance des familles}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.3}{L'importation des donn\351es}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.4}{Les DataFrames}{chapter.1}% 8
 \BOOKMARK [1][-]{section.1.5}{Variables}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.6}{Transformation}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.7}{Validation}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.8}{Interpretation}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.6}{La transformation}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.7}{La validation}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.8}{L'interpr\351tation}{chapter.1}% 12
 \BOOKMARK [1][-]{section.1.9}{Exercises}{chapter.1}% 13
 \BOOKMARK [1][-]{section.1.10}{Glossary}{chapter.1}% 14
 \BOOKMARK [0][-]{chapter.2}{Distributions}{}% 15

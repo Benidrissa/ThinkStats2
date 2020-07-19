@@ -39,11 +39,11 @@
 \providecommand\phantomsection{}
 
 
-\title{L'esprit statistique (titre original: Think Stats)}
+\title{L'esprit statistique (original: Think Stats)}
 \author{Allen B. Downey}
 
-\newcommand{\thetitle}{Think Stats}
-\newcommand{\thesubtitle}{Exploratory Data Analysis in Python}
+\newcommand{\thetitle}{L'esprit statistique (original: Think Stats)}
+\newcommand{\thesubtitle}{Analyse exploratoire des données en Python}
 \newcommand{\theversion}{2.1.0}
 
 % these styles get translated in CSS for the HTML version
@@ -366,7 +366,7 @@ Ce n'est pas ce que j'ai fait.  En fait, je n'ai pratiquement pas utilisé de ma
 La ressource que j'ai utilisée plus que toute autre est Wikipédia. En général, le Les articles que j'ai lus sur des sujets statistiques étaient très bons (bien que j'aie fait quelques petits changements en cours de route).  J'inclus des références aux pages de Wikipedia tout au long du livre et je vous encourage à suivre ces liens ; dans de nombreux cas, la page Wikipedia complète là où ma description s'arrête.  Le vocabulaire et la notation dans ce livre sont généralement conforme à Wikipédia, à moins que j'aie une bonne raison de m'en écarter.  D'autres ressources que j'ai trouvées utiles sont les forum de statistiques sur Wolfram MathWorld et  Reddit. \url{http://www.reddit.com/r/statistics}.
 
 
-\section{Using the code}
+\section{L'utilisation du code}
 \label{code}
 
 Le code et les données utilisés dans ce livre sont disponibles à l'adresse suivante
@@ -558,184 +558,112 @@ Dans beaucoup de ces discussions, les gens fournissent des données pour étayer
 
 \begin{quote}
 
-``My two friends that have given birth recently to their first babies,
-BOTH went almost 2 weeks overdue before going into labour or being
-induced.''
+"Mes deux amies qui ont récemment donné naissance à leur premier bébé, ont eu un retard de près de deux semaines avant d'entrer en travail ou d'être induites."
 
-``My first one came 2 weeks late and now I think the second one is
-going to come out two weeks early!!''
+"Mon premier est arrivé deux semaines en retard et maintenant je pense que le second va sortir deux semaines plus tôt !!"
 
-``I don't think that can be true because my sister was my mother's
-first and she was early, as with many of my cousins.''
+"Je ne pense pas que cela puisse être vrai car ma soeur a été la première de ma mère et elle était précoce, comme beaucoup de mes cousins".
 
 \end{quote}
 
-Reports like these are called {\bf anecdotal evidence} because they
-are based on data that is unpublished and usually personal.  In casual
-conversation, there is nothing wrong with anecdotes, so I don't mean
-to pick on the people I quoted.
+Ces rapports sont appelés "preuves anecdotiques" car ils sont basés sur des données non publiées et généralement personnelles.  Dans les discussions informelles, les anecdotes n'ont rien de mal, je ne veux donc pas m'en prendre aux personnes que j'ai citées.
 \index{anecdotal evidence}
 
-But we might want evidence that is more persuasive and
-an answer that is more reliable.  By those standards, anecdotal
-evidence usually fails, because:
+Mais nous pourrions vouloir des preuves plus convaincantes et une réponse plus fiable.  Selon ces normes, les preuves anecdotiques échouent généralement, pour cause:
 
 \begin{itemize}
 
-\item Small number of observations: If pregnancy length is longer
-  for first babies, the difference is probably small compared to
-  natural variation.  In that case, we might have to compare a large
-  number of pregnancies to be sure that a difference exists.
+\item Petit nombre d'observations: Si la durée de la grossesse est plus longue pour les premiers bébés, la différence est probablement faible par rapport à la variation naturelle.  Dans ce cas, il se peut que nous devions comparer un grand nombre de grossesses pour être sûrs qu'il existe une différence.
 \index{pregnancy length}
 
-\item Selection bias: People who join a discussion of this question
-  might be interested because their first babies were late.  In that
-  case the process of selecting data would bias the results.
+\item Biais de sélection: Les personnes qui se joignent à une discussion sur cette question pourraient être intéressées parce que leurs premiers bébés étaient en retard.  Dans ce cas, le processus de sélection des données fausserait les résultats.
 \index{selection bias}
 \index{bias!selection}
 
-\item Confirmation bias:  People who believe the claim might be more
-  likely to contribute examples that confirm it.  People who doubt the
-  claim are more likely to cite counterexamples.
+\item Biais de confirmation:  Les personnes qui croient en l'affirmation pourraient être plus susceptibles de fournir des exemples qui la confirment.  Les personnes qui doutent de l'affirmation sont plus susceptibles de citer 
+contre-exemples.
 \index{confirmation bias}
 \index{bias!confirmation}
 
-\item Inaccuracy: Anecdotes are often personal stories, and often
-  misremembered, misrepresented, repeated
-  inaccurately, etc.
+\item L'inexactitude : Les anecdotes sont souvent des histoires personnelles, et souvent mal mémorisées, déformées, répétées de manière inexacte, etc.
 
 \end{itemize}
 
-So how can we do better?
+Comment pouvons-nous faire mieux ?
 
 
-\section{A statistical approach}
+\section{Une approche statistique}
 
-To address the limitations of anecdotes, we will use the tools
-of statistics, which include:
+Pour pallier les limites des anecdotes, nous utiliserons les outils des statistiques, qui comprennent :
 
 \begin{itemize}
 
-\item Data collection: We will use data from a large national survey
-  that was designed explicitly with the goal of generating
-  statistically valid inferences about the U.S. population.
+\item Collecte de données : Nous utiliserons des données provenant d'une grande enquête nationale qui a été conçue explicitement dans le but de générer des inférences statistiquement valables sur la population américaine.
 \index{data collection}
 
-\item Descriptive statistics: We will generate statistics that
-  summarize the data concisely, and evaluate different ways to
-  visualize data.
+\item Les statistiques descriptives : Nous produirons des statistiques qui résument les données de manière concise et évaluerons les différentes façons de visualiser les données.
 \index{descriptive statistics}
 
-\item Exploratory data analysis: We will look for
-  patterns, differences, and other features that address the questions
-  we are interested in.  At the same time we will check for
-  inconsistencies and identify limitations.
+\item L'analyse exploratoire des données : Nous rechercherons des modèles, des différences et d'autres caractéristiques qui répondent aux questions qui nous intéressent.  Dans le même temps, nous vérifierons les incohérences et identifierons les limites.
 \index{exploratory data analysis}
 
-\item Estimation: We will use data from a sample to estimate
-  characteristics of the general population.
+\item L'estimation : Nous utiliserons les données d'un échantillon pour estimer les caractéristiques de la population générale.
 \index{estimation}
 
-\item Hypothesis testing: Where we see apparent effects, like a
-  difference between two groups, we will evaluate whether the effect
-  might have happened by chance.
+\item Les tests d'hypothèses : Lorsque nous constatons des effets apparents, comme une différence entre deux groupes, nous évaluons si l'effet a pu se produire par hasard.
 \index{hypothesis testing}
 
 \end{itemize}
 
-By performing these steps with care to avoid pitfalls, we can
-reach conclusions that are more justifiable and more likely to be
-correct.
+En appliquant ces étapes avec soin pour éviter les pièges, nous pouvons parvenir à des conclusions plus justifiables et plus susceptibles d'être correctes.
 
 
-\section{The National Survey of Family Growth}
+\section{L'enquête nationale sur la croissance des familles}
 \label{nsfg}
 
-Since 1973 the U.S. Centers for Disease Control and Prevention (CDC)
-have conducted the National Survey of Family Growth (NSFG),
-which is intended to gather ``information on family life, marriage and
-divorce, pregnancy, infertility, use of contraception, and men's and
-women's health. The survey results are used \ldots to plan health services and
-health education programs, and to do statistical studies of families,
-fertility, and health.''  See
+Depuis 1973, les Centres américains de contrôle et de prévention des maladies (CDC) mènent l'enquête nationale sur la croissance des familles (NSFG), qui vise à recueillir "des informations sur la vie familiale, le mariage et le divorce, la grossesse, l'infertilité, l'utilisation de la contraception et la santé des hommes et des femmes". Les résultats de l'enquête sont utilisés pour planifier les services de santé et les programmes d'éducation à la santé, et pour réaliser des études statistiques sur les familles, la fécondité et la santé."  See
   \url{http://cdc.gov/nchs/nsfg.htm}.
 \index{National Survey of Family Growth}
 \index{NSFG}
 
-We will use data collected by this survey to investigate whether first
-babies tend to come late, and other questions.  In order to use this
-data effectively, we have to understand the design of the study.
+Nous utiliserons les données recueillies par cette enquête pour déterminer si les premiers bébés ont tendance à arriver en retard, et pour répondre à d'autres questions.  Pour utiliser ces données efficacement, nous devons comprendre la conception de l'étude.
 
-The NSFG is a {\bf cross-sectional} study, which means that it
-captures a snapshot of a group at a point in time.  The most
-common alternative is a {\bf longitudinal} study, which observes a
-group repeatedly over a period of time.
+L'enquête NSFG est une étude {\bf "transversale"}, ce qui signifie qu'elle donne un aperçu d'un groupe à un moment donné.  L'alternative la plus courante est l'étude {\bf longitudinale}, qui observe un groupe de manière répétée sur une période de temps.
 \index{cross-sectional study}
 \index{study!cross-sectional}
 \index{longitudinal study}
 \index{study!longitudinal}
 
-The NSFG has been conducted seven times; each deployment is called a
-{\bf cycle}.  We will use data from Cycle 6, which was conducted from
-January 2002 to March 2003.  \index{cycle}
+Le NSFG a été mené à sept reprises ; chaque déploiement est appelé {\bf cycle}. Nous utiliserons les données du cycle 6, qui a été mené de janvier 2002 à mars 2003.  \index{cycle}
 
-The goal of the survey is to draw conclusions about a {\bf
-  population}; the target population of the NSFG is people in the
-United States aged 15-44.  Ideally surveys would collect data from
-every member of the population, but that's seldom possible.  Instead
-we collect data from a subset of the population called a {\bf sample}.
-The people who participate in a survey are called {\bf respondents}.
+L'objectif de l'enquête est de dégager des conclusions sur un {\bf population} ; la population cible de la NSFG est constituée par les personnes âgées de 15 à 44 ans aux États-Unis.  Idéalement, les enquêtes devraient recueillir des données auprès de chaque membre de la population, mais c'est rarement possible.  Nous recueillons plutôt des données auprès d'un sous-ensemble de la population appelé {\bf échantillon }.
+Les personnes qui participent à une enquête sont appelées {\bf répondants }.
 \index{population}
 
-In general,
-cross-sectional studies are meant to be {\bf representative}, which
-means that every member of the target population has an equal chance
-of participating.  That ideal is hard to achieve in
-practice, but people who conduct surveys come as close as they can.
+En général, les études transversales sont censées être {\bf représentatives}, ce qui signifie que chaque membre de la population cible a une chance égale de participer.  Cet idéal est difficile à atteindre dans la pratique, mais les personnes qui mènent les enquêtes s'en rapprochent le plus possible.
 \index{respondent} \index{representative}
 
-The NSFG is not representative; instead it is deliberately {\bf
-  oversampled}.  The designers of the study recruited three
-groups---Hispanics, African-Americans and teenagers---at rates higher
-than their representation in the U.S. population, in order to
-make sure that the number of respondents in each of
-these groups is large enough to draw valid statistical inferences.
+Le NSFG n'est pas représentatif, mais il est délibérément sur-échantillonné.  Les concepteurs de l'étude ont recruté trois groupes--Hispaniques, Afro-Américains et adolescents--à des taux supérieurs à leur représentation dans la population américaine, afin de s'assurer que le nombre de répondants dans chacun de ces groupes est suffisamment important pour tirer des conclusions statistiques valables.
 \index{oversampling}
 
-Of course, the drawback of oversampling is that it is not as easy
-to draw conclusions about the general population based on statistics
-from the survey.  We will come back to this point later.
+Bien sûr, l'inconvénient du suréchantillonnage est qu'il n'est pas aussi facile de tirer des conclusions sur la population générale à partir des statistiques de l'enquête.  Nous reviendrons sur ce point plus tard.
 
-When working with this kind of data, it is important to be familiar
-with the {\bf codebook}, which documents the design of the study, the
-survey questions, and the encoding of the responses.  The codebook and
-user's guide for the NSFG data are available from
+Lorsque l'on travaille avec ce type de données, il est important de se familiariser avec le {\bf codebook}, qui documente la conception de l'étude, les questions de l'enquête et l'encodage des réponses.  Le codebook et le guide de l'utilisateur pour les données NSFG sont disponibles à l'adresse suivante
 \url{http://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm}
 
 
-\section{Importing the data}
+\section{L'importation des données}
 
-The code and data used in this book are available from
-\url{https://github.com/AllenDowney/ThinkStats2}.  For information
-about downloading and working with this code, 
-see Section~\ref{code}.
+Le code et les données utilisés dans ce livre sont disponibles à l'adresse suivante
+\url{https://github.com/AllenDowney/ThinkStats2}.  Pour plus d'informations sur le téléchargement et l'utilisation de ce code, voir la section ~\ref{code}.
 
-Once you download the code, you should have a file called {\tt
-  ThinkStats2/code/nsfg.py}.  If you run it, it should read a data
-file, run some tests, and print a message like, ``All tests passed.''
+Une fois le code téléchargé, vous devez disposer d'un fichier appelé {\tt ThinkStats2/code/nsfg.py}.  Si vous l'exécutez, il devrait lire une donnée et imprimer un message du type "Tous les tests ont été réussis".
 
-Let's see what it does.  Pregnancy data from Cycle 6 of the NSFG is in
-a file called {\tt 2002FemPreg.dat.gz}; it
-is a gzip-compressed data file in plain text (ASCII), with fixed width
-columns.  Each line in the file is a {\bf record} that
-contains data about one pregnancy.
+Voyons ce qu'il fait.  Les données de grossesse du cycle 6 de la NSFG sont dans un fichier appelé {\tt 2002FemPreg.dat.gz} ; il est un fichier de données compressé au format gzip en texte clair (ASCII), à largeur fixe colonnes.  Chaque ligne du fichier est un {\bf record} qui contient des données sur une grossesse.
 
-The format of the file is documented in {\tt 2002FemPreg.dct}, which
-is a Stata dictionary file.  Stata is a statistical software system;
-a ``dictionary'' in this context is a list of variable names, types,
-and indices that identify where in each line to find each variable.
+Le format du fichier est documenté dans le fichier {\tt 2002FemPreg.dct}, qui est un fichier de dictionnaire Stata.  Stata est un logiciel de statistiques ;  un "dictionnaire" dans ce contexte est une liste de noms de variables, de types, et des indices qui identifient où  trouver chaque variable dans chaque ligne.
 
-For example, here are a few lines from {\tt 2002FemPreg.dct}:
+Par exemple, voici quelques lignes de {\tt 2002FemPreg.dct} :
 %
 \begin{verbatim}
 infile dictionary {
@@ -744,16 +672,9 @@ infile dictionary {
 }
 \end{verbatim}
 
-This dictionary describes two variables: {\tt caseid} is a 12-character
-string that represents the respondent ID; {\tt pregordr} is a 
-one-byte integer that indicates which pregnancy this record
-describes for this respondent.
+Ce dictionnaire décrit deux variables : {\tt caseid} est une chaîne de 12 caractères qui représente l'ID de la répondante ; {\tt pregordr} est un entier d'un octet qui indique quelle grossesse cet enregistrement décrit pour cette répondante.
 
-The code you downloaded includes {\tt thinkstats2.py}, which is a Python
-module
-that contains many classes and functions used in this book,
-including functions that read the Stata dictionary and
-the NSFG data file.  Here's how they are used in {\tt nsfg.py}:
+Le code que vous avez téléchargé comprend {\tt thinkstats2.py}, qui est un module Python qui contient de nombreuses classes et fonctions utilisées dans ce livre, y compris des fonctions qui lisent le dictionnaire Stata et le fichier de données NSFG.  Voici comment ils sont utilisés dans le fichier {\tt nsfg.py} :
 
 \begin{verbatim}
 def ReadFemPreg(dct_file='2002FemPreg.dct',
@@ -764,31 +685,21 @@ def ReadFemPreg(dct_file='2002FemPreg.dct',
     return df
 \end{verbatim}
 
-{\tt ReadStataDct} takes the name of the dictionary file
-and returns {\tt dct}, a {\tt FixedWidthVariables} object that contains the
-information from the dictionary file.  {\tt dct} provides {\tt
-  ReadFixedWidth}, which reads the data file.
+{\tt ReadStataDct} prend le nom du fichier du dictionnaire
+et renvoie {\tt dct}, un objet {\tt FixedWidthVariables} qui contient les informations du fichier du dictionnaire.  {\tt dct} fournit {\tt ReadFixedWidth}, qui lit le fichier de données.
 
 
-\section{DataFrames}
+\section{Les DataFrames}
 \label{dataframe}
 
-The result of {\tt ReadFixedWidth} is a DataFrame, which is the
-fundamental data structure provided by pandas, which is a Python
-data and statistics package we'll use throughout this book.
-A DataFrame contains a
-row for each record, in this case one row per pregnancy, and a column
-for each variable.
+Le résultat de {\tt ReadFixedWidth} est un DataFrame, qui est la structure de données fondamentale fournie par les pandas, qui est un paquet de Pythondata et de statistiques que nous utiliserons tout au long de ce livre.
+Un DataFrame contient une ligne pour chaque enregistrement, dans ce cas une ligne par grossesse, et une colonne pour chaque variable.
 \index{pandas}
 \index{DataFrame}
 
-In addition to the data, a DataFrame also contains the variable
-names and their types, and it provides methods for accessing and modifying
-the data.
+En plus des données, un DataFrame contient également les noms des variables et leurs types, et il fournit des méthodes pour accéder aux données et les modifier.
 
-If you print {\tt df} you get a truncated view of the rows and
-columns, and the shape of the DataFrame, which is 13593
-rows/records and 244 columns/variables.
+Si vous imprimez {\tt df}, vous obtenez une vue tronquée des lignes et des colonnes, et la forme du DataFrame, qui est de 13593 lignes/enregistrements et de 244 colonnes/variables.
 
 \begin{verbatim}
 >>> import nsfg
@@ -798,20 +709,17 @@ rows/records and 244 columns/variables.
 [13593 rows x 244 columns]
 \end{verbatim}
 
-The DataFrame is too big to display, so the output is truncated.  The
-last line reports the number of rows and columns.
+Le DataFrame est trop grand pour être affiché, donc la sortie est tronquée.  La dernière ligne indique le nombre de lignes et de colonnes.
 
-The attribute {\tt columns} returns a sequence of column
-names as Unicode strings:
+L'attribut {\tt columns} renvoie une séquence de noms de colonnes sous forme de chaînes Unicode :
 
 \begin{verbatim}
 >>> df.columns
 Index([u'caseid', u'pregordr', u'howpreg_n', u'howpreg_p', ... ])
 \end{verbatim}
 
-The result is an Index, which is another pandas data structure.  
-We'll learn more about Index later, but for
-now we'll treat it like a list:
+Le résultat est un indice, qui est une autre structure de données de pandas.  
+Nous en apprendrons plus sur Index plus tard, mais pour l'instant nous le traiterons comme une liste :
 \index{pandas}
 \index{Index}
 
@@ -820,8 +728,7 @@ now we'll treat it like a list:
 'pregordr'
 \end{verbatim}
 
-To access a column from a DataFrame, you can use the column
-name as a key:
+Pour accéder à une colonne à partir d'un DataFrame, vous pouvez utiliser le nom de la colonne comme clé :
 \index{DataFrame}
 
 \begin{verbatim}
@@ -830,10 +737,9 @@ name as a key:
 <class 'pandas.core.series.Series'>
 \end{verbatim}
 
-The result is a Series, yet another pandas data structure.
-A Series is like a Python list with some additional features.
-When you print a Series, you get the indices and the
-corresponding values:
+Le résultat est une série, encore une autre structure de données de pandas.
+Une série est comme une liste en Python avec quelques fonctionnalités supplémentaires.
+Lorsque vous imprimez une Series, vous obtenez les indices et les valeurs correspondantes :
 \index{Series}
 
 \begin{verbatim}
@@ -849,17 +755,12 @@ corresponding values:
 Name: pregordr, Length: 13593, dtype: int64
 \end{verbatim}
 
-In this example the indices are integers from 0 to 13592, but in
-general they can be any sortable type.  The elements
-are also integers, but they can be any type.
+Dans cet exemple, les indices sont des entiers de 0 à 13592, mais en général, ils peuvent être de n'importe quel type triable.  Les éléments sont également des entiers, mais ils peuvent être de n'importe quel type.
 
-The last line includes the variable name, Series length, and data type;
-{\tt int64} is one of the types provided by NumPy.  If you run
-this example on a 32-bit machine you might see {\tt int32}.
+La dernière ligne comprend le nom de la variable, la longueur de la série et le type de données ; {\tt int64} est l'un des types fournis par NumPy.  Si vous exécutez cet exemple sur une machine 32 bits, vous verrez peut-être {\tt int32}.
 \index{NumPy}
 
-You can access the elements of a Series using integer indices
-and slices:
+Vous pouvez accéder aux éléments d'une série en utilisant des indices entiers et des tranches :
 
 \begin{verbatim}
 >>> pregordr[0]
@@ -871,84 +772,57 @@ and slices:
 Name: pregordr, dtype: int64
 \end{verbatim}
 
-The result of the index operator is an {\tt int64}; the
-result of the slice is another Series.
+Le résultat de l'opérateur de l'indice est un {\tt int64} ; le résultat de la tranche est une autre série.
 
-You can also access the columns of a DataFrame using dot notation:
+Vous pouvez également accéder aux colonnes d'un DataFrame en utilisant la notation par points :
 \index{DataFrame}
 
 \begin{verbatim}
 >>> pregordr = df.pregordr
 \end{verbatim}
 
-This notation only works if the column name is a valid Python
-identifier, so it has to begin with a letter, can't contain spaces, etc.
+Cette notation ne fonctionne que si le nom de la colonne est un identifiant Python valide, donc il doit commencer par une lettre, ne peut pas contenir d'espaces, etc.
 
 
 \section{Variables}
 
-We have already seen two variables in the NSFG dataset, {\tt caseid}
-and {\tt pregordr}, and we have seen that there are 244 variables in
-total.  For the explorations in this book, I use the following
-variables:
+Nous avons déjà vu deux variables dans l'ensemble de données NSFG, {\tt caseid} et {\tt pregordr}, et nous avons vu qu'il y a 244 variables au total. Pour les explorations de ce livre, j'utilise les variables suivantes :
 
 \begin{itemize}
 
-\item {\tt caseid} is the integer ID of the respondent.
+\item {\tt caseid} est l'identifiant entier du défendeur.
 
-\item {\tt prglngth} is the integer duration of the pregnancy in weeks.
-\index{pregnancy length}
+\item {\tt prglngth} La durée entière de la grossesse en semaines.
+\index{pregnancy length} (durée de la grossesse)
 
-\item {\tt outcome} is an integer code for the outcome of the
-  pregnancy.  The code 1 indicates a live birth.
+\item {\tt outcome} est un code entier pour l'issue de la grossesse.  Le code 1 indique une naissance vivante.
 
-\item {\tt pregordr} is a pregnancy serial number; for example, the
-  code for a respondent's first pregnancy is 1, for the second
-  pregnancy is 2, and so on.
-
-\item {\tt birthord} is a serial number for live
-  births; the code for a respondent's first child is 1, and so on.
-  For outcomes other than live birth, this field is blank.
-
-\item \verb"birthwgt_lb" and \verb"birthwgt_oz" contain the pounds and
-  ounces parts of the birth weight of the baby.
-\index{birth weight}
+\item {\tt pregordr} est un numéro d'ordre de grossesse ; par exemple, le code pour la première grossesse d'une répondante est 1, pour la deuxième grossesse est 2, et ainsi de suite.
+\item {\tt birthord} est un numéro de série pour les naissances vivantes ; le code pour le premier enfant de l'enquêtée est 1, et ainsi de suite. Pour les résultats autres que les naissances vivantes, ce champ est vide.
+\item \verb "birthwgt_lb" et \verb "birthwgt_oz" contiennent les parties en livres et en onces du poids du bébé à la naissance.
+\index{birth weight} (poids à la naissance)
 \index{weight!birth}
 
-\item {\tt agepreg} is the mother's age at the end of the pregnancy.
+\item {\tt agepreg} est l'âge de la mère à la fin de la grossesse.
 
-\item {\tt finalwgt} is the statistical weight associated with the
-  respondent.  It is a floating-point value that indicates the number
-  of people in the U.S. population this respondent represents.
+\item {\tt finalwgt} Le poids statistique associé à la personne interrogée.  Il s'agit d'une valeur à virgule flottante qui indique le nombre de la population américaine que ce répondant représente.
   \index{weight!sample}
 
 \end{itemize}
 
-If you read the codebook carefully, you will see that many of the
-variables are {\bf recodes}, which means that they are not part of the
-{\bf raw data} collected by the survey; they are calculated using
-the raw data.  \index{recode} \index{raw data}
+Si vous lisez attentivement le livre de codes, vous constaterez que de nombreuses variables sont des {\bf recodes}, ce qui signifie qu'elles ne font pas partie des {\bf raw data} collectées par l'enquête ; elles sont calculées à partir des données brutes.  \index{recode} \index{raw data}
 
-For example, {\tt prglngth} for live births is equal to the raw
-variable {\tt wksgest} (weeks of gestation) if it is available;
-otherwise it is estimated using {\tt mosgest * 4.33} (months of
-gestation times the average number of weeks in a month).
+Par exemple, {\tt prglngth} pour les naissances vivantes est égal à la variable brute {\tt wksgest}. (semaines de gestation) si elle est disponible ; sinon, elle est estimée à l'aide de {\tt mostest * 4,33}. (le nombre de mois de gestation correspond au nombre moyen de semaines dans un mois).
 
-Recodes are often based on logic that checks the consistency and
-accuracy of the data.  In general it is a good idea to use recodes
-when they are available, unless there is a compelling reason to
-process the raw data yourself.
+Les recodages sont souvent basés sur une logique qui vérifie la cohérence et l'exactitude des données.  En général, il est bon d'utiliser les recodages lorsqu'ils sont disponibles, à moins qu'il n'y ait une raison impérieuse de traiter les données brutes vous-même.
 
 
-\section{Transformation}
+\section{La transformation}
 \label{cleaning}
 
-When you import data like this, you often have to check for errors,
-deal with special values, convert data into different formats, and
-perform calculations.  These operations are called {\bf data cleaning}.
+Lorsque vous importez des données de ce type, vous devez souvent vérifier les erreurs, traiter des valeurs spéciales, convertir les données en différents formats et effectuer des calculs.  Ces opérations sont appelées {\bf nettoyage des données}.
 
-{\tt nsfg.py} includes {\tt CleanFemPreg}, a function that cleans
-the variables I am planning to use.
+{\tt nsfg.py} comprend {\tt CleanFemPreg}, une fonction qui nettoie les variables que je prévois d'utiliser.
 
 \begin{verbatim}
 def CleanFemPreg(df):
@@ -961,15 +835,11 @@ def CleanFemPreg(df):
     df['totalwgt_lb'] = df.birthwgt_lb + df.birthwgt_oz / 16.0    
 \end{verbatim}
 
-{\tt agepreg} contains the mother's age at the end of the
-pregnancy.  In the data file, {\tt agepreg} is encoded as an integer
-number of centiyears.  So the first line divides each element
-of {\tt agepreg} by 100, yielding a floating-point value in
-years.
+{\tt agepreg} contient l'âge de la mère à la fin de la
+grossesse.  Dans le fichier de données, {\tt agepreg} est encodé comme un nombre entier de centimètres.  Ainsi, la première ligne divise chaque élément de {\tt agepreg} par 100, ce qui donne une valeur en virgule flottante
+ans.
 
-\verb"birthwgt_lb" and \verb"birthwgt_oz" contain the weight of the
-baby, in pounds and ounces, for pregnancies that end in live birth.
-In addition it uses several special codes:
+\verb "birthwgt_lb" et \verb "birthwgt_oz" contiennent le poids du bébé, en livres et en onces, pour les grossesses qui se terminent par une naissance vivante. En outre, il utilise plusieurs codes spéciaux :
 
 \begin{verbatim}
 97      NOT ASCERTAINED
@@ -977,16 +847,10 @@ In addition it uses several special codes:
 99      DON'T KNOW
 \end{verbatim}
 
-Special values encoded as numbers are {\em dangerous\/} because if they
-are not handled properly, they can generate bogus results, like
-a 99-pound baby.  The {\tt replace} method replaces these values with
-{\tt np.nan}, a special floating-point value that represents ``not a
-number.''  The {\tt inplace} flag tells {\tt replace} to modify the
-existing Series rather than create a new one.
+Les valeurs spéciales encodées sous forme de nombres sont dangereuses car si elles ne sont pas manipulées correctement, elles peuvent générer des résultats bidons, comme un bébé de 90 kilos.  La méthode de remplacement remplace ces valeurs par np.nan, une valeur spéciale à virgule flottante qui représente "pas un nombre".  L'indicateur {\tt inplace} indique à la méthode {\tt replace} de modifier la série existante plutôt que d'en créer une nouvelle.
 \index{NaN}
 
-As part of the IEEE floating-point standard, all mathematical
-operations return {\tt nan} if either argument is {\tt nan}:
+Dans le cadre de la norme en virgule flottante de l'IEEE, toutes les opérations mathématiques renvoient {\tt nan} si l'un ou l'autre des arguments est {\tt nan} :
 
 \begin{verbatim}
 >>> import numpy as np
@@ -994,18 +858,13 @@ operations return {\tt nan} if either argument is {\tt nan}:
 nan
 \end{verbatim}
 
-So computations with {\tt nan} tend to do the right thing, and most
-pandas functions handle {\tt nan} appropriately.  But dealing with
-missing data will be a recurring issue.
+Ainsi, les calculs effectués avec les {\tt nan} tendent à être corrects, et la plupart des fonctions pandas gèrent les {\tt nan} de manière appropriée.  Mais le traitement des données manquantes sera un problème récurrent.
 \index{pandas}
 \index{missing values}
 
-The last line of {\tt CleanFemPreg} creates a new
-column \verb"totalwgt_lb" that combines pounds and ounces into
-a single quantity, in pounds.
+La dernière ligne de {\tt CleanFemPreg} crée une nouvelle colonne \verb "totalwgt_lb" qui combine les livres et les onces en une seule quantité, en livres.
 
-One important note: when you add a new column to a DataFrame, you
-must use dictionary syntax, like this
+Une remarque importante : lorsque vous ajoutez une nouvelle colonne à un DataFrame, vous devez utiliser la syntaxe du dictionnaire, comme ceci
 \index{DataFrame}
 
 \begin{verbatim}
@@ -1020,22 +879,14 @@ Not dot notation, like this:
     df.totalwgt_lb = df.birthwgt_lb + df.birthwgt_oz / 16.0 
 \end{verbatim}
 
-The version with dot notation adds an attribute to the DataFrame
-object, but that attribute is not treated as a new column.
+La version avec notation par points ajoute un attribut à l'objet DataFrame, mais cet attribut n'est pas traité comme une nouvelle colonne.
 
 
-\section{Validation}
+\section{La validation}
 
-When data is exported from one software environment and imported into
-another, errors might be introduced.  And when you are
-getting familiar with a new dataset, you might interpret data
-incorrectly or introduce other misunderstandings.  If you take
-time to validate the data, you can save time later and avoid errors.
+Lorsque des données sont exportées d'un environnement logiciel et importées dans un autre, des erreurs peuvent être introduites.  Et lorsque vous vous familiarisez avec un nouvel ensemble de données, vous pouvez interpréter les données de manière incorrecte ou introduire d'autres malentendus.  Si vous prenez le temps de valider les données, vous pouvez gagner du temps plus tard et éviter les erreurs.
 
-One way to validate data is to compute basic statistics and compare
-them with published results.  For example, the NSFG codebook includes
-tables that summarize each variable.  Here is the table for
-{\tt outcome}, which encodes the outcome of each pregnancy:
+Une façon de valider les données est de calculer des statistiques de base et de les comparer aux résultats publiés.  Par exemple, le codebook de NSFG comprend des tableaux qui résument chaque variable.  Voici le tableau pour les {\tt outcome} de la grossesse, qui codifie le résultat de chaque grossesse :
 
 \begin{verbatim}
 value   label                  Total
@@ -1047,10 +898,7 @@ value   label                  Total
 6       CURRENT PREGNANCY        352
 \end{verbatim}
 
-The Series class provides a method, \verb"value_counts", that
-counts the number of times each value appears.  If we select the {\tt
-  outcome} Series from the DataFrame, we can use \verb"value_counts"
-to compare with the published data:
+La classe Series fournit une méthode, \verb "value_counts", qui compte le nombre de fois que chaque valeur apparaît.  Si nous sélectionnons le {\tt outcome}  Série de la DataFrame, nous pouvons utiliser \verb "value_counts" pour comparer avec les données publiées :
 \index{DataFrame}
 \index{Series}
 
@@ -1064,13 +912,9 @@ to compare with the published data:
 6     352
 \end{verbatim}
 
-The result of \verb"value_counts" is a Series;
-\verb"sort_index()" sorts the Series by index, so the values
-appear in order.
+Le résultat de \verb "value_counts" est une série ; \verb "sort_index()" trie la série par index, de sorte que les valeurs apparaissent dans l'ordre.
 
-Comparing the results with the published table, it looks like the
-values in {\tt outcome} are correct.  Similarly, here is the published
-table for \verb"birthwgt_lb"
+En comparant les résultats avec le tableau publié, il semble que les valeurs dans {\tt outcome} soient correctes.  De même, voici le tableau publié pour \verb "birthwgt_lb"
 
 \begin{verbatim}
 value   label                  Total
@@ -1105,42 +949,29 @@ And here are the value counts:
 51       1
 \end{verbatim}
 
-The counts for 6, 7, and 8 pounds check out, and if you add
-up the counts for 0-5 and 9-95, they check out, too.  But
-if you look more closely, you will notice one value that has to be
-an error, a 51 pound baby!
+Les chiffres de 6, 7 et 8 livres sont valables, et si vous additionnez les chiffres de 0 à 5 et de 9 à 95, ils sont également valables.  Mais si vous regardez de plus près, vous remarquerez une valeur qui doit être une erreur, un bébé de 51 livres !
 
-To deal with this error, I added a line to {\tt CleanFemPreg}:
+Pour remédier à cette erreur, j'ai ajouté une ligne dans le fichier {\tt CleanFemPreg} :
 
 \begin{verbatim}
 df.loc[df.birthwgt_lb > 20, 'birthwgt_lb'] = np.nan
 \end{verbatim}
 
-This statement replaces invalid values with {\tt np.nan}.
-The attribute {\tt loc} provides several ways to select
-rows and columns from a DataFrame.  In this example, the
-first expression in brackets is the row indexer; the second
-expression selects the column.
+Cette déclaration remplace les valeurs non valides par {\tt np.nan}.
+L'attribut {\tt loc} offre plusieurs façons de sélectionner des lignes et des colonnes dans un DataFrame.  Dans cet exemple, la première expression entre parenthèses est l'indexeur de ligne ; la deuxième expression sélectionne la colonne.
 \index{loc indexer}
 \index{indexer!loc}
 
-The expression \verb"df.birthwgt_lb > 20" yields a Series of type
-{\tt bool}, where True indicates that the condition is true.  When a
-boolean Series is used as an index, it selects only the elements that
-satisfy the condition.
+L'expression \verb "df.birthwgt_lb > 20" donne une série de type {\tt bool}, où True indique que la condition est vraie.  Lorsqu'une série booléenne est utilisée comme indice, elle ne sélectionne que les éléments qui satisfont à la condition.
 \index{Series} \index{boolean} \index{NaN}
 
 
 
-\section{Interpretation}
+\section{L'interprétation}
 
-To work with data effectively, you have to think on two levels at the
-same time: the level of statistics and the level of context.
+Pour travailler efficacement avec les données, il faut penser à deux niveaux en même temps : le niveau des statistiques et le niveau du contexte.
 
-As an example, let's look at the sequence of outcomes for a few
-respondents.  Because of the way the data files are organized, we have
-to do some processing to collect the pregnancy data for each respondent.
-Here's a function that does that:
+À titre d'exemple, examinons la séquence des résultats pour quelques répondants.  En raison de la façon dont les fichiers de données sont organisés, nous devons effectuer un certain traitement pour recueillir les données sur la grossesse de chaque répondante. Voici une fonction qui fait cela :
 
 \begin{verbatim}
 def MakePregMap(df):
@@ -1150,19 +981,15 @@ def MakePregMap(df):
     return d
 \end{verbatim}
 
-{\tt df} is the DataFrame with pregnancy data.  The {\tt iteritems}
-method enumerates the index (row number)
-and {\tt caseid} for each pregnancy.
+{\tt df} est le DataFrame avec les données sur la grossesse.  La méthode {\tt iteritems} énumère l'index (numéro de ligne) et la {\tt caseid} pour chaque grossesse.
 \index{DataFrame}
 
-{\tt d} is a dictionary that maps from each case ID to a list of
-indices.  If you are not familiar with {\tt defaultdict}, it is in
-the Python {\tt collections} module.
-Using {\tt d}, we can look up a respondent and get the
-indices of that respondent's pregnancies.
+{\tt d}est un dictionnaire qui établit une correspondance entre chaque identification de cas et une liste de
+indices.  Si vous ne connaissez pas {\tt defaultdict}, c'est dans
+le module Python {\tt collections}.
+En utilisant {\tt d}, nous pouvons rechercher une répondante et obtenir les indices des grossesses de cette répondante.
 
-This example looks up one respondent and prints a list of outcomes
-for her pregnancies:
+Cet exemple permet de rechercher une personne interrogée et d'imprimer une liste des résultats de ses grossesses :
 
 \begin{verbatim}
 >>> caseid = 10229
@@ -1172,34 +999,19 @@ for her pregnancies:
 [4 4 4 4 4 4 1]
 \end{verbatim}
 
-{\tt indices} is the list of indices for pregnancies corresponding
-to respondent {\tt 10229}.
+{\tt indices} est la liste des indices de grossesses correspondant à la répondante {\tt 10229}.
 
-Using this list as an index into {\tt df.outcome} selects the
-indicated rows and yields a Series.  Instead of printing the
-whole Series, I selected the {\tt values} attribute, which is
-a NumPy array.  
+L'utilisation de cette liste comme index dans le fichier {\tt df.outcome} permet de sélectionner les lignes indiquées et d'obtenir une série.  Au lieu d'imprimer toute la série, j'ai sélectionné l'attribut {\tt values}, qui est un tableau NumPy.  
 \index{NumPy}
 \index{Series}
 
-The outcome code {\tt 1} indicates a live birth. Code {\tt 4} indicates
-a miscarriage; that is, a pregnancy that ended spontaneously, usually
-with no known medical cause.
+Le code de résultat {\tt 1} indique une naissance vivante. Le code {\tt 4} indique une fausse-couche, c'est-à-dire une grossesse qui s'est terminée spontanément, généralement sans cause médicale connue.
 
-Statistically this respondent is not unusual.  Miscarriages are common
-and there are other respondents who reported as many or more.
+Statistiquement, cette répondante n'est pas inhabituelle.  Les fausses couches sont courantes et il y a d'autres répondants qui en ont déclaré autant ou plus.
 
-But remembering the context, this data tells the story of a woman who
-was pregnant six times, each time ending in miscarriage.  Her seventh
-and most recent pregnancy ended in a live birth.  If we consider this
-data with empathy, it is natural to be moved by the story it tells.
+Mais si l'on se souvient du contexte, ces données racontent l'histoire d'une femme qui a été enceinte six fois, se terminant chaque fois par une fausse couche.  Sa septième grossesse, la plus récente, s'est terminée par une naissance vivante.  Si nous considérons ces données avec empathie, il est naturel d'être ému par l'histoire qu'elles racontent.
 
-Each record in the NSFG dataset represents a person who provided
-honest answers to many personal and difficult questions.  We can use
-this data to answer statistical questions about family life,
-reproduction, and health.  At the same time, we have an obligation
-to consider the people represented by the data, and to afford them
-respect and gratitude.
+Chaque enregistrement de l'ensemble de données NSFG représente une personne qui a fourni des réponses honnêtes à de nombreuses questions personnelles et difficiles.  Nous pouvons utiliser ces données pour répondre à des questions statistiques sur la vie familiale, la reproduction et la santé.  En même temps, nous avons l'obligation de prendre en considération les personnes représentées par les données, et de leur accorder respect et gratitude.
 \index{ethics}
 
 
